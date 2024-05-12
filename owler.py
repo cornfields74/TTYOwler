@@ -11,7 +11,7 @@ _____ _____        __      .                     ▄█
   |     |     |   \__/ \||  \ \__ |   v0.4                                                      
                                      {Style.DIM}(made by verbatimc3){Style.RESET_ALL}{Fore.CYAN}
                              {Style.RESET_ALL}
-Press [S] to update, press [R] to refresh
+Press [U] to update, press [R] to refresh
 Press [H], [F], or [P] to switch timelines
 Press [Q] to quit
 """
@@ -79,7 +79,7 @@ while True:
 	print(bootupstring)
 	get_timeline(tl)
 	h = wait_key()
-	if h == 's':
+	if h == 'u':
 		os.system('clear')
 		print(bootupstring)
 		status = input(f'{Fore.CYAN}Type an update {Style.DIM}(maximum 140 characters):{Style.RESET_ALL}\n')
