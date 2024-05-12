@@ -8,7 +8,7 @@ _____ _____        __      .                     ▄█
   |     |    \ /  |  |     |   _    _       ▄████████▄                                          
   |     |     |   |  | | | |  / \ |/      ▄  ▀██████▀                                           
   |     |     |   |  | ||| |  |_/ |        ▀██████▀                                             
-  |     |     |   \__/ \||  \ \__ |   v0.4                                                      
+  |     |     |   \__/ \||  \ \__ |   v0.5                                                      
                                      {Style.DIM}(made by verbatimc3){Style.RESET_ALL}{Fore.CYAN}
                              {Style.RESET_ALL}
 Press [U] to update, press [R] to refresh
@@ -25,7 +25,7 @@ if os.path.exists('pref.pow'):
 |  |      |  |     |   _    _       ▄████████▄
 |__/ |  | |  | | | |  / \ |/      ▄  ▀██████▀
 |    |  | |  | ||| |  |_/ |        ▀██████▀
-|     \_| \__/ \||  \ \__ |   v0.3
+|     \_| \__/ \||  \ \__ |   v0.5
         |                    {Style.DIM}(made by verbatimc3){Style.RESET_ALL}{Fore.CYAN}
      __/                     {Style.RESET_ALL}
 Press [S] to update, press [R] to refresh
@@ -69,8 +69,13 @@ def update_status(status):
 		
 def get_timeline(timeline):
 	timeline_request = requests.get(f"{url}/statuses/{timeline}_timeline.json", auth=(username, password))
+	global tljson
 	tljson = json.loads(timeline_request.text)
 	#tljson = json.loads('[{"user":{"name":"Owler","screen_name":"owler","id":"65c1421a1897e7840ad8d315","protected":false,"profile_image_url":"https://picsum.photos/48/48"},"text":"what are you doing?","id":20,"created_at":"Wed Nov 08 20:48:50 GMT 2023","source":"web","favorited":false},{"user":{"name":"Owler","screen_name":"owler","id":"65c1421a1897e7840ad8d315","protected":false,"profile_image_url":"https://picsum.photos/48/48"},"text":"testing the api!","id":10,"created_at":"Wed Nov 08 20:47:50 GMT 2023","source":"api","favorited":false}]')
+	for t in tljson:
+		print(f"{Fore.RED}@{t['user']['screen_name']}{Style.RESET_ALL}: \"{t['text']}\" {Style.DIM}(sent from {t['source']}, created on {t['created_at']}){Style.RESET_ALL}")
+		
+def print_cached_timeline():
 	for t in tljson:
 		print(f"{Fore.RED}@{t['user']['screen_name']}{Style.RESET_ALL}: \"{t['text']}\" {Style.DIM}(sent from {t['source']}, created on {t['created_at']}){Style.RESET_ALL}")
 tl = 'home'
@@ -80,12 +85,10 @@ while True:
 	get_timeline(tl)
 	h = wait_key()
 	if h == 'u':
+		status = input(f'{Fore.CYAN}\nType an update {Style.DIM}(maximum 140 characters):{Style.RESET_ALL}\n')
 		os.system('clear')
 		print(bootupstring)
-		status = input(f'{Fore.CYAN}Type an update {Style.DIM}(maximum 140 characters):{Style.RESET_ALL}\n')
-		os.system('clear')
-		print(bootupstring)
-		print('Waiting...')
+		print('Posting...')
 		h = update_status(status)
 		if h == 200:
 			print('Successful! Refreshing timeline now')
