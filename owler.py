@@ -55,13 +55,13 @@ else:
 	f.write(f'["{username}", "{password}"]')
 	f.close()
 login_request = requests.get("https://api.owler.cloud/v1/account/verify_credentials.json", auth=(username, password))
-
 # Status code checks
 if login_request.status_code == 401:
-	print("Failed to authenticate due to bad username or password.")
+	print("You weren't able to authenticate to TTYOwler due to bad credientials. The login file was deleted automatically so you can reauthenticate.")
+	os.remove('login.pow')
 	exit(1)
 elif login_request.status_code == 400:
-	print("Failed to authenticate due to a server or validation error.")
+	print("Failed to authenticate because of a server-side error. Please try again later.")
 	exit(1)
 user = json.loads(requests.get("https://api.owler.cloud/v1/users/show.json", auth=(username, password)).text)
 bootupstring = bootupstring + f'Logged in as {Fore.RED}@{user["screen_name"]}{Style.RESET_ALL}{Style.DIM} ({user["name"]}){Style.RESET_ALL}\n'
