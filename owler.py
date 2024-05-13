@@ -1,14 +1,30 @@
-import requests, json, os, getpass
-from base64 import b64encode # Shouldn't be necessary, but keep it still.
-from console.utils import wait_key
-from colorama import Fore, Back, Style
+basicbootupstring = f"""
+_____ _____        __      .                     ▄█
+  |     |   \   / /  \     |               ▀██▄ █████▄
+  |     |    \ /  |  |     |   _    _       ▄████████▄
+  |     |     |   |  | | | |  / \ |/      ▄  ▀██████▀
+  |     |     |   |  | ||| |  |_/ |        ▀██████▀
+  |     |     |   \__/ \||  \ \__ |   v0.6
+  				     (made by verbatimc3)
+"""
+try:
+	import requests, json, os, getpass, hh
+	from base64 import b64encode # Shouldn't be necessary, but keep it still.
+	from console.utils import wait_key
+	from colorama import Fore, Back, Style
+except ModuleNotFoundError:
+	print(basicbootupstring)
+	print('Certain libraries required to run TTYOwler were not found! Make sure you have the required libraries installed.')
+	print('If you do not have the libraries, you can install them by running "pip install -r requirements.txt" in your terminal.')
+	exit(1)
+	
 bootupstring = f"""{Fore.CYAN}
-_____ _____        __      .                     ▄█                                             
-  |     |   \   / /  \     |               ▀██▄ █████▄                                          
-  |     |    \ /  |  |     |   _    _       ▄████████▄                                          
-  |     |     |   |  | | | |  / \ |/      ▄  ▀██████▀                                           
-  |     |     |   |  | ||| |  |_/ |        ▀██████▀                                             
-  |     |     |   \__/ \||  \ \__ |   v0.5                                                      
+_____ _____        __      .                     ▄█
+  |     |   \   / /  \     |               ▀██▄ █████▄
+  |     |    \ /  |  |     |   _    _       ▄████████▄
+  |     |     |   |  | | | |  / \ |/      ▄  ▀██████▀
+  |     |     |   |  | ||| |  |_/ |        ▀██████▀
+  |     |     |   \__/ \||  \ \__ |   v0.6
                                      {Style.DIM}(made by verbatimc3){Style.RESET_ALL}{Fore.CYAN}
                              {Style.RESET_ALL}
 Press [U] to update, press [R] to refresh
