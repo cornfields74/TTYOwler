@@ -8,7 +8,7 @@ _____ _____        __      .                     ▄█
   				     (made by verbatimc3)
 """
 try:
-	import requests, json, os, getpass, hh
+	import requests, json, os, getpass
 	from base64 import b64encode # Shouldn't be necessary, but keep it still.
 	from console.utils import wait_key
 	from colorama import Fore, Back, Style
