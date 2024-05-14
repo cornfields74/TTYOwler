@@ -74,11 +74,11 @@ bootupstring = bootupstring + f'Logged in as {Fore.RED}@{user["screen_name"]}{St
 url = "https://api.owler.cloud/v1"
 
 def update_status(status):
-	post_request = requests.post(f"{url}/statuses/update.json?status={status}&source=TTYOwler", auth=(username, password)) # update request
+	post_request = requests.post(f"{url}/statuses/update.json?status={status}&source=TTYOwler", auth=(username, password), timeout=120) # update request
 	return post_request.status_code
 		
 def get_timeline(timeline):
-	timeline_request = requests.get(f"{url}/statuses/{timeline}_timeline.json", auth=(username, password))
+	timeline_request = requests.get(f"{url}/statuses/{timeline}_timeline.json", auth=(username, password), timeout=120)
 	global tljson
 	tljson = json.loads(timeline_request.text)
 	#tljson = json.loads('[{"user":{"name":"Owler","screen_name":"owler","id":"65c1421a1897e7840ad8d315","protected":false,"profile_image_url":"https://picsum.photos/48/48"},"text":"what are you doing?","id":20,"created_at":"Wed Nov 08 20:48:50 GMT 2023","source":"web","favorited":false},{"user":{"name":"Owler","screen_name":"owler","id":"65c1421a1897e7840ad8d315","protected":false,"profile_image_url":"https://picsum.photos/48/48"},"text":"testing the api!","id":10,"created_at":"Wed Nov 08 20:47:50 GMT 2023","source":"api","favorited":false}]')
