@@ -54,7 +54,11 @@ else:
 	f = open('login.pow', 'w')
 	f.write(f'["{username}", "{password}"]')
 	f.close()
-login_request = requests.get("https://api.owler.cloud/v1/account/verify_credentials.json", auth=(username, password))
+try:
+	login_request = requests.get("https://api.owler.cloud/v1/account/verify_credentials.json", auth=(username, password), timeout=120)
+except requests.exceptions.Timeout:
+	print('You weren\'t able to authenticate to TTYOwler due to a network timeout. Please try again later.')
+	exit(1)
 # Status code checks
 if login_request.status_code == 401:
 	print("You weren't able to authenticate to TTYOwler due to bad credientials. The login file was deleted automatically so you can reauthenticate.")
