@@ -99,7 +99,7 @@ while True:
 		if h == 200:
 			print('Successful! Refreshing timeline now')
 		else:
-			print('Failed (' + str(h) + '). Refreshing timeline now')
+			print('Failed (' + str(h) + '). Refreshing timeline now') # thanks for LukasZone on owler for catching
 	if h == 'h':
 		tl = 'home'
 	if h == 'p':
