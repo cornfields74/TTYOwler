@@ -91,7 +91,7 @@ while True:
 	get_timeline(tl)
 	h = wait_key()
 	if h == 'u':
-		status = input(f'{Fore.CYAN}\nType an update {Style.DIM}(maximum 140 characters):{Style.RESET_ALL}\n')
+		status = input(f'{Fore.CYAN}\nType an update {Style.DIM}(maximum 280 characters):{Style.RESET_ALL}\n')
 		os.system('clear')
 		print(bootupstring)
 		print('Posting...')
@@ -99,7 +99,7 @@ while True:
 		if h == 200:
 			print('Successful! Refreshing timeline now')
 		else:
-			print('Failed (' + str(h) + '). Refreshing timeline now') # thanks for LukasZone on owler for catching
+			print('Failed (' + str(h) + '). Refreshing timeline now')
 	if h == 'h':
 		tl = 'home'
 	if h == 'p':
