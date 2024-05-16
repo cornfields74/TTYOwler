@@ -9,14 +9,12 @@ except ModuleNotFoundError:
 	exit(1)
 	
 bootupstring = f"""{Fore.CYAN}
-_____ _____        __      .                     ▄█
-  |     |   \   / /  \     |               ▀██▄ █████▄
-  |     |    \ /  |  |     |   _    _       ▄████████▄
-  |     |     |   |  | | | |  / \ |/      ▄  ▀██████▀
-  |     |     |   |  | ||| |  |_/ |        ▀██████▀
-  |     |     |   \__/ \||  \ \__ |   v0.6
-                                     {Style.DIM}(made by verbatimc3){Style.RESET_ALL}{Fore.CYAN}
-                             {Style.RESET_ALL}
+                                       ▄█   
+                                 ▀██▄ █████▄
+___ ___     ._.         ___ __    ▄████████▄
+ |   |  |_| | | | | |   |__ |_| ▄  ▀██████▀ 
+ |   |   |  |_| ||| |__ |__ |\_  ▀██████▀   v0.7
+                                              {Style.DIM}(made by @nivi on owler.cloud){Style.RESET_ALL}
 Press [U] to update, press [R] to refresh
 Press [H], [F], or [P] to switch timelines
 Press [Q] to quit
@@ -31,7 +29,7 @@ if os.path.exists('pref.pow'):
 |  |      |  |     |   _    _       ▄████████▄
 |__/ |  | |  | | | |  / \ |/      ▄  ▀██████▀
 |    |  | |  | ||| |  |_/ |        ▀██████▀
-|     \_| \__/ \||  \ \__ |   v0.5
+|     \_| \__/ \||  \ \__ |   v0.7
         |                    {Style.DIM}(made by verbatimc3){Style.RESET_ALL}{Fore.CYAN}
      __/                     {Style.RESET_ALL}
 Press [S] to update, press [R] to refresh
