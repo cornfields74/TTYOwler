@@ -14,7 +14,7 @@ bootupstring = f"""{Fore.CYAN}
 ___ ___     ._.         ___ __    ▄████████▄
  |   |  |_| | | | | |   |__ |_| ▄  ▀██████▀ 
  |   |   |  |_| ||| |__ |__ |\_  ▀██████▀   v0.7
-                                              {Style.DIM}(made by @nivi on owler.cloud){Style.RESET_ALL}
+                                              {Style.DIM}(made by @lmmsfurry on owler.cloud){Style.RESET_ALL}
 Press [U] to update, press [R] to refresh
 Press [H], [F], or [P] to switch timelines
 Press [Q] to quit
